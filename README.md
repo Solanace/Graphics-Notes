@@ -21,4 +21,15 @@ Size   | Color Options
 6 bit  | RGB, _each_ color has its own intensity
 3 byte | RGB, each with 256 possible intensities
 
+#### Other Color Spaces
+* RGBA - Red, Green, Blue + Alpha (transparency)
+* HSB - Hue, Saturation, Brightness
+
+![Tada](http://www.tomjewett.com/colors/hsb.jpg)
+
+#### Image File Formats
+* Raster vs. Vector
+	* Vector formats represent images as a series of drawing instructions. Infinitely scalable.
+	* SVG (Scalable Vector Graphics)
+
 ---
