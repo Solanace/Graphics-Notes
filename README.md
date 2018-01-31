@@ -6,9 +6,9 @@ Spring 2018
 ## Table of Contents
 Date     | Aim
 ---      | ---
-01/31/18 | <a href="#test">Peering into the Depths of Color</a>
+01/31/18 | <a href="#01/31/18">Peering into the Depths of Color</a>
 
-## <a name="test">01/31/18: Peering into the Depths of Color.</a>
+## <a name="01/31/18">01/31/18: Peering into the Depths of Color.</a>
 
 * Color Depth - Amount of data used to represent a single pixel.
 
