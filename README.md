@@ -1,6 +1,6 @@
-Penn Wu
-Mr. Dyrland-Weaver, Period 5
-Computer Graphics
+Penn Wu  
+Mr. Dyrland-Weaver, Period 5  
+Computer Graphics  
 Spring 2018
 
 ## Table of Contents
@@ -54,8 +54,13 @@ Sample header (copy-paste, future self)
 * All whitespace is equivalent.
 * Example:
 ```
-P3
-4  3
+P3 (file type, P3 is ASCII and P6 is binary)
+4 3 (x-y dimensions)
+255 (maximum value)
+255 0 0  255 0 0  255 0 0  255 0 0
+0 255 0  0 255 0  0 255 0  0 255 0
+0 0 255  0 0 255  0 0 255  0 0 255
 ```
+* Use the terminal command `convert file.ppm file.png` to compress your work!
 
 ---
