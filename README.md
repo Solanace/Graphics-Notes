@@ -8,11 +8,19 @@ Spring 2018
 | -------- | -------------------------------------------------------------------- |
 | 01/31/18 | <a href="#01/31/18">Peering into the Depths of Color</a>             |
 | 02/01/18 | <a href="#01/31/18">Peering into the Depths of Color (continued)</a> |
+| 02/02/18 | <a href="#02/02/18">Useful Terminal Commands</a>                     |
 
 ```
 Sample header (copy-paste, future self)
 ## <a name="02/01/18">02/01/18: </a>
 ```
+
+## <a name="02/02/18">02/02/18: Useful Terminal Commands</a>
+
+* `display image.ppm`
+* `convert image.ppm image.png`
+
+---
 
 ## <a name="01/31/18">01/31/18: Peering into the Depths of Color</a>
 
