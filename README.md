@@ -3,17 +3,42 @@ Mr. Dyrland-Weaver, Period 5
 Computer Graphics  
 Spring 2018
 
+Note to self: Look at https://github.com/orgs/mks66/invitation
+
 ## Table of Contents
 | Date     | Aim                                                                  |
 | -------- | -------------------------------------------------------------------- |
 | 01/31/18 | <a href="#01/31/18">Peering into the Depths of Color</a>             |
 | 02/01/18 | <a href="#01/31/18">Peering into the Depths of Color (continued)</a> |
 | 02/02/18 | <a href="#02/02/18">Useful Terminal Commands</a>                     |
+| 02/05/18 | <a href="#02/05/18">Bresenham's Line Algorithm</a>                   |
 
 ```
 Sample header (copy-paste, future self)
-## <a name="02/01/18">02/01/18: </a>
+## <a name="02/06/18">02/06/18: </a>
 ```
+
+## <a name="02/05/18">02/05/18: Bresenham's Line Algorithm</a>
+
+* In CS, we need to approximate values of y into integers.
+* We don't care about the grid lines, we care about the boxes!
+* Each box is represented by a single pixel.
+* Instead of quadrants, we use octants.
+
+#### Bresenham's Line Algorithm
+* Goal: find the pixels that best approximate a target line.
+* Assume that:
+	1. (x<sub>0</sub>, y<sub>0</sub>) -> (x<sub>1</sub>, y<sub>1</sub>) ϵ Z
+	2. For lines in octant I, 0 < m < 1
+	3. x<sub>0</sub> < x<sub>1</sub> (can just swap their values, but make sure you swap the y-values too!)
+* Because of these assumptions, we can take any colored pixel and move either right or right and up, never just up (slope is restricted).
+* But which of those two is it?
+* Find the value of the line at x + 1, and evaluate whether it is above or below (x + 1, y + 0.5).
+	* If above, color the upper pixel.
+	* If below, color the lower pixel.
+	* If on, arbitrarily pick and stick with one.
+	
+---
 
 ## <a name="02/02/18">02/02/18: Useful Terminal Commands</a>
 
@@ -24,7 +49,7 @@ Sample header (copy-paste, future self)
 
 ## <a name="01/31/18">01/31/18: Peering into the Depths of Color</a>
 
-* Color Depth - Amount of data used to represent a single pixel.
+**Color Depth** - Amount of data used to represent a single pixel.
 
 | Size   | Color Options                           |
 | ------ | --------------------------------------- |
@@ -69,6 +94,6 @@ P3 (file type, P3 is ASCII and P6 is binary)
 0 255 0  0 255 0  0 255 0  0 255 0
 0 0 255  0 0 255  0 0 255  0 0 255
 ```
-* Use the terminal command `convert file.ppm file.png` to compress your work!
+### Use the terminal command `convert file.ppm file.png` to compress your work!
 
 ---
