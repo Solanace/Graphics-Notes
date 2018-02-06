@@ -65,8 +65,6 @@ Sample header (copy-paste, future self)
 * RGBA - Red, Green, Blue + Alpha (transparency)
 * HSB - Hue, Saturation, Brightness
 
-![alt text](http://www.tomjewett.com/colors/hsb.jpg "Nifty!")
-
 #### Image File Formats
 * Raster vs. Vector
 	* Vector formats represent images as a series of drawing instructions and are infinitely scalable.
