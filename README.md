@@ -6,12 +6,12 @@ Spring 2018
 Note to self: Look at https://github.com/orgs/mks66/invitation
 
 ## Table of Contents
-| Date     | Aim                                                                        |
-| -------- | -------------------------------------------------------------------------- |
-| 01/31/18 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
-| 02/01/18 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
-| 02/02/18 | [Useful Terminal Commands](#0202-useful-terminal-commands)                 |
-| 02/05/18 | [Bresenham's Line Algorithm](#0205-bresenhams-line-algorithm)              |
+| Date  | Aim                                                                        |
+| ----- | -------------------------------------------------------------------------- |
+| 01/31 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
+| 02/01 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
+| 02/02 | [Useful Terminal Commands](#0202-useful-terminal-commands)                 |
+| 02/05 | [Bresenham's Line Algorithm](#0205-bresenhams-line-algorithm)              |
 
 ```
 Sample header (copy-paste, future self)
