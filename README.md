@@ -11,14 +11,14 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 | 01/31/18 | [Peering into the Depths of Color](#01/31/18) |
 | 02/01/18 | [Peering into the Depths of Color](#01/31/18) |
 | 02/02/18 | [Useful Terminal Commands](#02/02/18)         |
-| 02/05/18 | [Bresenham's Line Algorithm](#02/05/18)       |
+| 02/05/18 | [Bresenham's Line Algorithm](#020518-bresenhams-line-algorithm)       |
 
 ```
 Sample header (copy-paste, future self)
 ## <a name="02/06/18">02/06/18: </a>
 ```
 
-## <a name="02/05/18">02/05/18: Bresenham's Line Algorithm</a>
+## 02/05/18: Bresenham's Line Algorithm
 
 * In CS, we need to approximate values of y into integers.
 * We don't care about the grid lines, we care about the boxes!
