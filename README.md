@@ -42,8 +42,9 @@ Sample header (copy-paste, future self)
 
 ## 02/02: Useful Terminal Commands
 
-* `display image.ppm`
-* `convert image.ppm image.png`
+#### Commands for ImageMagick
+* `$ display image.ppm`
+* `$ convert image.ppm image.png`
 
 ---
 
