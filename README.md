@@ -13,11 +13,6 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 | 02/02 | [Useful Terminal Commands](#0202-useful-terminal-commands)                 |
 | 02/05 | [Bresenham's Line Algorithm](#0205-bresenhams-line-algorithm)              |
 
-```
-Sample header (copy-paste, future self)
-## <a name="02/06/18">02/06/18: </a>
-```
-
 ## 02/05: Bresenham's Line Algorithm
 
 * In CS, we need to approximate values of y into integers.
