@@ -11,9 +11,64 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 | 01/31 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
 | 02/01 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
 | 02/02 | [Useful Terminal Commands](#0202-useful-terminal-commands)                 |
-| 02/05 | [Bresenham's Line Algorithm](#0205-bresenhams-line-algorithm)              |
+| 02/05 | [Bresenham's Line Algorithm 1](#0205-bresenhams-line-algorithm-1)          |
+| 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
+| 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
 
-## 02/05: Bresenham's Line Algorithm
+
+## 02/07: Bresenham's Line Algorithm 3
+
+#### Octant II
+* Midpoint = (x + 0.5, y + 1)
+* d = f(x<sub>0</sub> + 0.5, y<sub>0</sub> + 1) = A + 2B
+
+#### Octant III
+* Midpoint = (x + 1, y - 0.5)
+* d<sub>0</sub> = f(x<sub>0</sub> + 1, y<sub>0</sub> - 0.5) = 2A - B
+
+
+## 02/06: Bresenham's Line Algorithm 2
+
+#### Testing the Midpoint
+* Midpoint is (x + 1, y + 0.5)
+```
+y = mx + b
+0 = mx - y + b
+
+m = Δy / Δx
+
+0 = (Δy / Δx)x - y + b
+  = xΔy -yΔx + bΔx
+  = Ax + By + C
+A = Δy
+B = -Δx
+C = bΔx
+
+f(x,y) = Ax + By + C
+d = f(x0 + 1, y0 + 0.5)
+d = A + 0.5B
+2d = 2A + B (we don't like decimals)
+```
+* Notice that B is negative; adding B reduces the value of B.
+* When the midpoint is directly on the line, f(x, y) = 0 (this is not really that important).
+* When the midpoint is above the line, f(x, y) < 0.
+* When the midpoint is below the line, f(x, y) > 0.
+
+#### Algorithm for Octant I
+```
+x = x0, y = y0
+d = 2A + B // Changes for other octants
+while x <= x1 // Changes for other octants
+	plot(x, y)
+	if d > 0 // Changes for other octants
+		y ++
+		d += 2B
+	x ++
+	d += 2A
+// y ++ and x ++ blocks might be swapped for other octants
+```
+
+## 02/05: Bresenham's Line Algorithm 1
 
 * In CS, we need to approximate values of y into integers.
 * We don't care about the grid lines, we care about the boxes!
