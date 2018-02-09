@@ -18,19 +18,58 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 
 ## 02/07: Bresenham's Line Algorithm 3
 
-#### Octant II
+#### Algorithm for Octant II
 * Midpoint = (x + 0.5, y + 1)
-* d = f(x<sub>0</sub> + 0.5, y<sub>0</sub> + 1) = A + 2B
+* d<sub>0</sub> = f(x<sub>0</sub> + 0.5, y<sub>0</sub> + 1) = A + 2B
+```
+x = x0, y = y0
+d = A + 2B
+while x <= x1
+	plot(x, y)
+	if d < 0
+		x ++
+		d += 2A
+	y ++
+	d += 2B
+```
 
-#### Octant III
+#### Algorithm for Octant VIII
 * Midpoint = (x + 1, y - 0.5)
 * d<sub>0</sub> = f(x<sub>0</sub> + 1, y<sub>0</sub> - 0.5) = 2A - B
+```
+x = x0, y = y0
+d = 2A - B
+while x <= x1
+	plot(x, y)
+	if d < 0
+		y --
+		d -= 2B
+	x ++
+	d += 2A
+```
 
+#### Algorithm for Octant VII
+* Midpoint = (x + 0.5, y - 1)
+* d<sub>0</sub> = f(x<sub>0</sub> + 0.5, y<sub>0</sub> - 1) = A - 2B
+```
+x = x0, y = y0
+d = 2A - B
+while x <= x1
+	plot(x, y)
+	if d < 0
+		x ++
+		d += 2A
+	y --
+	d -= 2B
+```
+
+For Octants III, IV, V, and VI, just reverse the x-y coordinates and use the algorithms from Octants VII, VIII, I, and II respectively.
 
 ## 02/06: Bresenham's Line Algorithm 2
 
 #### Testing the Midpoint
-* Midpoint is (x + 1, y + 0.5)
+* Midpoint = (x + 1, y + 0.5)
+* d<sub>0</sub> = f(x<sub>0</sub> + 1, y<sub>0</sub> + 0.5) = 2A + B
 ```
 y = mx + b
 0 = mx - y + b
@@ -57,15 +96,14 @@ d = A + 0.5B
 #### Algorithm for Octant I
 ```
 x = x0, y = y0
-d = 2A + B // Changes for other octants
-while x <= x1 // Changes for other octants
+d = 2A + B
+while x <= x1
 	plot(x, y)
-	if d > 0 // Changes for other octants
+	if d > 0
 		y ++
 		d += 2B
 	x ++
 	d += 2A
-// y ++ and x ++ blocks might be swapped for other octants
 ```
 
 ## 02/05: Bresenham's Line Algorithm 1
