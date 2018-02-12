@@ -15,7 +15,6 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 | 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
 | 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
 
-
 ## 02/07: Bresenham's Line Algorithm 3
 
 #### Algorithm for Octant II
@@ -65,6 +64,8 @@ while x <= x1
 
 For Octants III, IV, V, and VI, just reverse the x-y coordinates and use the algorithms from Octants VII, VIII, I, and II respectively.
 
+---
+
 ## 02/06: Bresenham's Line Algorithm 2
 
 #### Testing the Midpoint
@@ -106,6 +107,8 @@ while x <= x1
 	d += 2A
 ```
 
+---
+
 ## 02/05: Bresenham's Line Algorithm 1
 
 * In CS, we need to approximate values of y into integers.
@@ -125,7 +128,7 @@ while x <= x1
 	* If above, color the upper pixel.
 	* If below, color the lower pixel.
 	* If on, arbitrarily pick and stick with one.
-	
+
 ---
 
 ## 02/02: Useful Terminal Commands
