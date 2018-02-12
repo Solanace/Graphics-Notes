@@ -12,7 +12,7 @@ Spring 2018
 | 02/05 | [Bresenham's Line Algorithm 1](#0205-bresenhams-line-algorithm-1)          |
 | 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
 | 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
-| 02/12 | [Representing Image Data](#02012-representing-image-data)                  |
+| 02/12 | [Representing Image Data](#0212-representing-image-data)                   |
 
 ---
 
