@@ -3,8 +3,6 @@ Mr. Dyrland-Weaver, Period 5
 Computer Graphics  
 Spring 2018
 
-Note to self: Look at https://github.com/orgs/mks66/invitation
-
 ## Table of Contents
 | Date  | Aim                                                                        |
 | ----- | -------------------------------------------------------------------------- |
@@ -14,6 +12,23 @@ Note to self: Look at https://github.com/orgs/mks66/invitation
 | 02/05 | [Bresenham's Line Algorithm 1](#0205-bresenhams-line-algorithm-1)          |
 | 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
 | 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
+| 02/12 | [Representing Image Data](#02012-representing-image-data)                  |
+
+---
+
+## 02/12: Representing Image Data
+
+Origins will always be on the bottom left, not the top left, in order to make it easier to visualize image transformations.
+
+#### Triangle Shenanigans
+* Triangles can be represented through a list of their 3 endpoints.
+* **Edge list** - List of points in the image. Every 2 points determine a line.
+	* \[P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>, ..., P<sub>n</sub>] generates lines \[P<sub>0</sub>P<sub>1</sub>, P<sub>1</sub>P<sub>2</sub>, ..., P<sub>n-1</sub>P<sub>n</sub>].
+		* P<sub>0</sub> = (x<sub>0</sub>, y<sub>0</sub>). The edge list is actually a 2D array!
+		* For 3D images, points will also include z-coordinates, but z-values also show up for rotations and other transformations.
+	* This does have a bit of repetition, but space is relatively cheap.
+
+---
 
 ## 02/07: Bresenham's Line Algorithm 3
 
@@ -159,7 +174,7 @@ while x <= x1
 #### Image File Formats
 * Raster vs. Vector
 	* Vector formats represent images as a series of drawing instructions and are infinitely scalable.
-		* SVG (Scalable Vector Graphics)
+		* SVG - Scalable Vector Graphics
 	* Raster formats represent images as a grid of pixels.
 * Uncompressed vs. Compressed (Raster)
 	* Uncompressed formats contain data for each pixel.
