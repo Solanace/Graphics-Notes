@@ -10,11 +10,11 @@ Spring 2018
 | 01/31 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
 | 02/01 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
 | 02/02 | [Useful Terminal Commands](#0202-useful-terminal-commands)                 |
-| 02/05 | [Bresenham's Line Algorithm 1](#0205-bresenhams-line-algorithm-1)          |
-| 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
-| 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
-| 02/12 | [Representing Image Data 1](#0212-representing-image-data-1)               |
-| 02/13 | [Representing Image Data 2](#0213-representing-image-data-2)               |
+| 02/05 | [Bresenham's Line Algorithm (1)](#0205-bresenhams-line-algorithm-1)        |
+| 02/06 | [Bresenham's Line Algorithm (2)](#0206-bresenhams-line-algorithm-2)        |
+| 02/07 | [Bresenham's Line Algorithm (3)](#0207-bresenhams-line-algorithm-3)        |
+| 02/12 | [Representing Image Data (1)](#0212-representing-image-data-1)             |
+| 02/13 | [Representing Image Data (2)](#0213-representing-image-data-2)             |
 
 ## 02/13: Representing Image Data (2)
 
