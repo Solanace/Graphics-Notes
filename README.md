@@ -4,6 +4,7 @@ Computer Graphics
 Spring 2018
 
 ## Table of Contents
+
 | Date  | Aim                                                                        |
 | ----- | -------------------------------------------------------------------------- |
 | 01/31 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
@@ -12,11 +13,35 @@ Spring 2018
 | 02/05 | [Bresenham's Line Algorithm 1](#0205-bresenhams-line-algorithm-1)          |
 | 02/06 | [Bresenham's Line Algorithm 2](#0206-bresenhams-line-algorithm-2)          |
 | 02/07 | [Bresenham's Line Algorithm 3](#0207-bresenhams-line-algorithm-3)          |
-| 02/12 | [Representing Image Data](#0212-representing-image-data)                   |
+| 02/12 | [Representing Image Data 1](#0212-representing-image-data-1)               |
+| 02/13 | [Representing Image Data 2](#0213-representing-image-data-2)               |
+
+## 02/13: Representing Image Data (2)
+
+Imagine the edge list as a 3xN matrix.
+
+#### Matrix Math for Graphics
+Matrix Multiplication
+* \# of columns in matrix M = # of rows in matrix N.
+	* A x B • B x C = A x C
+* Non-commutative - M • N isn't _always_ N • M. Sometimes it's not even possible to reverse M and N, given the previous restriction.
+* Examples:
+```
+          [a]
+[1 2 3] • [b] = [1a + 2b + 3c]
+          [c]
+  1x3     3x1        1x1
+
+[1 2 3]   [a b]   [1a + 2c + 3e  1b + 2d + 3f]
+[4 5 6] • [c d] = [4a + 5c + 6e  4b + 5d + 6f]
+[7 8 9]   [e f]   [7a + 8c + 9e  7b + 8d + 9f]
+  3x3      3x2                3x2
+```
+**You will have to write a procedure to do this.**
 
 ---
 
-## 02/12: Representing Image Data
+## 02/12: Representing Image Data (1)
 
 Origins will always be on the bottom left, not the top left, in order to make it easier to visualize image transformations.
 
@@ -25,12 +50,12 @@ Origins will always be on the bottom left, not the top left, in order to make it
 * **Edge list** - List of points in the image. Every 2 points determine a line.
 	* \[P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>, ..., P<sub>n</sub>] generates lines \[P<sub>0</sub>P<sub>1</sub>, P<sub>1</sub>P<sub>2</sub>, ..., P<sub>n-1</sub>P<sub>n</sub>].
 		* P<sub>0</sub> = (x<sub>0</sub>, y<sub>0</sub>). The edge list is actually a 2D array!
-		* For 3D images, points will also include z-coordinates, but z-values also show up for rotations and other transformations.
+		* For 3D images, points will include z-coordinates, which will also show up for rotations and other transformations.
 	* This does have a bit of repetition, but space is relatively cheap.
 
 ---
 
-## 02/07: Bresenham's Line Algorithm 3
+## 02/07: Bresenham's Line Algorithm (3)
 
 #### Algorithm for Octant II
 * Midpoint = (x + 0.5, y + 1)
@@ -81,7 +106,7 @@ For Octants III, IV, V, and VI, just reverse the x-y coordinates and use the alg
 
 ---
 
-## 02/06: Bresenham's Line Algorithm 2
+## 02/06: Bresenham's Line Algorithm (2)
 
 #### Testing the Midpoint
 * Midpoint = (x + 1, y + 0.5)
@@ -124,7 +149,7 @@ while x <= x1
 
 ---
 
-## 02/05: Bresenham's Line Algorithm 1
+## 02/05: Bresenham's Line Algorithm (1)
 
 * In CS, we need to approximate values of y into integers.
 * We don't care about the grid lines, we care about the boxes!
