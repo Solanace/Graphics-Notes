@@ -21,7 +21,6 @@ Spring 2018
 Imagine the edge list as a 3xN matrix.
 
 #### Matrix Math for Graphics
-Matrix Multiplication
 * \# of columns in matrix M = # of rows in matrix N.
 	* A x B • B x C = A x C
 * Non-commutative - M • N isn't _always_ N • M. Sometimes it's not even possible to reverse M and N, given the previous restriction.
@@ -38,6 +37,26 @@ Matrix Multiplication
   3x3      3x2                3x2
 ```
 **You will have to write a procedure to do this.**
+* Multiplicative Identity Matrix - M • I = M
+	* I is a square matrix with a top left/bottom right diagonal of 1's, and 0's everywhere else:
+	```
+	[1 0]   [a]   [a]
+	[0 1] • [b] = [b]
+	```
+
+
+#### Transformations
+* Focus on translations, dilations, and rotations.
+* These are also known as **affine transformations**, which preserve vertices and order.
+* Let E = edge matrix, T = transformation matrix. Should we do E • T or T • E?
+* T • E = 3x3 • 3xN = 3xN
+
+#### Translations
+* Goal: Define the T matrix to be multiplied with a point matrix to perform a translation.
+* (x, y, z) ---T<sub>(a, b, c)</sub>---> (x + a, y + b, z + c)
+* Use 4x4 matrices with a diagonal of 1's like an identity matrix.
+* The rightmost side will also have a, b, and c in descending order.
+* Multiply this matrix with the column matrix of a point + a 4th row with a value of 1.
 
 ---
 
