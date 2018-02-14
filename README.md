@@ -16,6 +16,8 @@ Spring 2018
 | 02/12 | [Representing Image Data (1)](#0212-representing-image-data-1)             |
 | 02/13 | [Representing Image Data (2)](#0213-representing-image-data-2)             |
 
+---
+
 ## 02/13: Representing Image Data (2)
 
 Imagine the edge list as a 3xN matrix.
@@ -57,6 +59,12 @@ Imagine the edge list as a 3xN matrix.
 * Use 4x4 matrices with a diagonal of 1's like an identity matrix.
 * The rightmost side will also have a, b, and c in descending order.
 * Multiply this matrix with the column matrix of a point + a 4th row with a value of 1.
+```
+[1 0 0 a]   [x]   [x + a]
+[0 1 0 b]   [y]   [y + b]
+[0 0 1 c] • [z] = [z + c]
+[0 0 0 1]   [1]   [1    ]
+```
 
 ---
 
