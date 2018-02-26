@@ -15,12 +15,49 @@ Spring 2018
 | 02/07 | [Bresenham's Line Algorithm (3)](#0207-bresenhams-line-algorithm-3)        |
 | 02/12 | [Representing Image Data (1)](#0212-representing-image-data-1)             |
 | 02/13 | [Representing Image Data (2)](#0213-representing-image-data-2)             |
+| 02/26 | [Transformations](#0226-transformations)                                   |
+
+---
+
+## 02/26: Transformations
+
+**Remember to use the `clear_screen()` function when initializing a screen!**
+
+#### Dilation
+* Making an image bigger or smaller.
+* (x, y, z) ---D<sub>(a, b, c)</sub>---> (ax, by, cz)
+* Dilation matrix:
+```
+[a 0 0 0][x]   [ax]
+[0 b 0 0][y]   [by]
+[0 0 c 0][z] = [cz]
+[0 0 0 1][1]   [ 1]
+```
+* If you want to make an image bigger/smaller without also moving one of its corners, translate it to the origin, dilate it, and translate it back again.
+
+#### Rotation
+* Set aside the z-axis for now.
+* (x, y) ---R<sub>θ</sub>---> (?, ?)
+* Use polar coordinates!
+* x = rcos(ϕ)
+* x<sub>1</sub> = rcos(ϕ + θ) = rcosϕcosθ - rsinϕsinθ = xcosθ - ysinθ
+* y = rsin(ϕ)
+* y<sub>1</sub> = rsin(ϕ + θ) = rsinϕcosθ + rcosϕsinθ = ycosθ + xsinθ
+* (x, y) ---R<sub>θ</sub>---> (xcosθ - ysinθ, ycosθ + xsinθ)
+* z is unchanged!
+* Rotation matrix:
+```
+[1 0 0 0][x]
+[0 1 0 0][y]
+[0 0 1 0][z]
+[0 0 0 1][
+```
 
 ---
 
 ## 02/13: Representing Image Data (2)
 
-Imagine the edge list as a 3xN matrix.
+Imagine the edge list as a 4xN matrix.
 
 #### Matrix Math for Graphics
 * \# of columns in matrix M = # of rows in matrix N.
@@ -42,16 +79,15 @@ Imagine the edge list as a 3xN matrix.
 * Multiplicative Identity Matrix - M • I = M
 	* I is a square matrix with a top left/bottom right diagonal of 1's, and 0's everywhere else:
 	```
-	[1 0]   [a]   [a]
-	[0 1] • [b] = [b]
+	[1 0][a]   [a]
+	[0 1][b] = [b]
 	```
-
 
 #### Transformations
 * Focus on translations, dilations, and rotations.
 * These are also known as **affine transformations**, which preserve vertices and order.
 * Let E = edge matrix, T = transformation matrix. Should we do E • T or T • E?
-* T • E = 3x3 • 3xN = 3xN
+* T • E = 4x4 • 4xN = 4xN
 
 #### Translations
 * Goal: Define the T matrix to be multiplied with a point matrix to perform a translation.
@@ -59,18 +95,19 @@ Imagine the edge list as a 3xN matrix.
 * Use 4x4 matrices with a diagonal of 1's like an identity matrix.
 * The rightmost side will also have a, b, and c in descending order.
 * Multiply this matrix with the column matrix of a point + a 4th row with a value of 1.
+* Transformation matrix:
 ```
-[1 0 0 a]   [x]   [x + a]
-[0 1 0 b]   [y]   [y + b]
-[0 0 1 c] • [z] = [z + c]
-[0 0 0 1]   [1]   [1    ]
+[1 0 0 a][x]   [x + a]
+[0 1 0 b][y]   [y + b]
+[0 0 1 c][z] = [z + c]
+[0 0 0 1][1]   [    1]
 ```
 
 ---
 
 ## 02/12: Representing Image Data (1)
 
-Origins will always be on the bottom left, not the top left, in order to make it easier to visualize image transformations.
+The origin will always be on the bottom left, not the top left, in order to make it easier to visualize image transformations.
 
 #### Triangle Shenanigans
 * Triangles can be represented through a list of their 3 endpoints.
