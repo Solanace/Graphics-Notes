@@ -22,17 +22,34 @@ Spring 2018
 
 ## 02/27: Transformations (2)
 
-#### Rotation
+More rotations!
+
+#### X-Axis
 * Rotation about the x-axis is pretty much the same thing as with the z-axis. Just swap x with y and y with z.
-	* y = rcos(ϕ)
-	* y<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = ycos(θ) - zsin(θ)
-	* z = rsin(ϕ)
-	* z<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = zcos(θ) + ysin(θ)
+* y = rcos(ϕ)
+* y<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = ycos(θ) - zsin(θ)
+* z = rsin(ϕ)
+* z<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = zcos(θ) + ysin(θ)
+
+#### Y-Axis
 * And again for the y-axis, swapping x with z and y with x:
-	* z = rcos(ϕ)
-	* z<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = zcos(θ) - xsin(θ)
-	* x = rsin(ϕ)
-	* x<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = xcos(θ) + zsin(θ)
+* z = rcos(ϕ)
+* z<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = zcos(θ) - xsin(θ)
+* x = rsin(ϕ)
+* x<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = xcos(θ) + zsin(θ)
+
+#### Combining Transformations
+Given the following matrices:
+* E<sub>0</sub> - Edges
+* T - Translate
+* R - Rotate
+* S - Scale
+
+T • E<sub>0</sub> = E<sub>1</sub>  
+R • E<sub>1</sub> = E<sub>2</sub>  
+S • E<sub>2</sub> = E<sub>3</sub>  
+E<sub>3</sub> = (S • R • T) • E<sub>0</sub>  
+**THIS IS RIGHT-TO-LEFT!**
 
 ---
 
@@ -52,7 +69,7 @@ Spring 2018
 ```
 * If you want to make an image bigger/smaller without also moving one of its corners, translate it to the origin, dilate it, and translate it back again.
 
-#### Rotation
+#### Rotation (Z-Axis)
 * Set aside the z-axis for now.
 * (x, y) ---R<sub>θ</sub>---> (?, ?)
 * Use polar coordinates!
