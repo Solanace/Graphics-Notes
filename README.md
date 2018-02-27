@@ -15,11 +15,28 @@ Spring 2018
 | 02/07 | [Bresenham's Line Algorithm (3)](#0207-bresenhams-line-algorithm-3)        |
 | 02/12 | [Representing Image Data (1)](#0212-representing-image-data-1)             |
 | 02/13 | [Representing Image Data (2)](#0213-representing-image-data-2)             |
-| 02/26 | [Transformations](#0226-transformations)                                   |
+| 02/26 | [Transformations (1)](#0226-transformations-1)                             |
+| 02/27 | [Transformations (2)](#0227-transformations-2)                             |
 
 ---
 
-## 02/26: Transformations
+## 02/27: Transformations (2)
+
+#### Rotation
+* Rotation about the x-axis is pretty much the same thing as with the z-axis. Just swap x with y and y with z.
+	* y = rcos(ϕ)
+	* y<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = ycos(θ) - zsin(θ)
+	* z = rsin(ϕ)
+	* z<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = zcos(θ) + ysin(θ)
+* And again for the y-axis, swapping x with z and y with x:
+	* z = rcos(ϕ)
+	* z<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = zcos(θ) - xsin(θ)
+	* x = rsin(ϕ)
+	* x<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = xcos(θ) + zsin(θ)
+
+---
+
+## 02/26: Transformations (1)
 
 **Remember to use the `clear_screen()` function when initializing a screen!**
 
@@ -40,17 +57,17 @@ Spring 2018
 * (x, y) ---R<sub>θ</sub>---> (?, ?)
 * Use polar coordinates!
 * x = rcos(ϕ)
-* x<sub>1</sub> = rcos(ϕ + θ) = rcosϕcosθ - rsinϕsinθ = xcosθ - ysinθ
+* x<sub>1</sub> = rcos(ϕ + θ) = rcos(ϕ)cos(θ) - rsin(ϕ)sin(θ) = xcos(θ) - ysin(θ)
 * y = rsin(ϕ)
-* y<sub>1</sub> = rsin(ϕ + θ) = rsinϕcosθ + rcosϕsinθ = ycosθ + xsinθ
-* (x, y) ---R<sub>θ</sub>---> (xcosθ - ysinθ, ycosθ + xsinθ)
+* y<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = ycos(θ) + xsin(θ)
+* (x, y) ---R<sub>θ</sub>---> (xcos(θ) - ysin(θ), ycos(θ) + xsin(θ))
 * z is unchanged!
-* Rotation matrix:
+* Rotation matrix (about the z-axis):
 ```
-[1 0 0 0][x]
-[0 1 0 0][y]
-[0 0 1 0][z]
-[0 0 0 1][
+[cos(θ) -sin(θ  0 0][x]   [xcos(θ) - ysin(θ)]
+[sin(θ)  cos(θ) 0 0][y]   [ycos(θ) + xsin(θ)]
+[0           0  1 0][z] = [                z]
+[0           0  0 1][1]   [                1]
 ```
 
 ---
