@@ -79,9 +79,9 @@ E<sub>3</sub> = (S • R • T) • E<sub>0</sub>
 * y<sub>1</sub> = rsin(ϕ + θ) = rsin(ϕ)cos(θ) + rcos(ϕ)sin(θ) = ycos(θ) + xsin(θ)
 * (x, y) ---R<sub>θ</sub>---> (xcos(θ) - ysin(θ), ycos(θ) + xsin(θ))
 * z is unchanged!
-* Rotation matrix (about the z-axis):
+* Rotation matrix:
 ```
-[cos(θ) -sin(θ  0 0][x]   [xcos(θ) - ysin(θ)]
+[cos(θ) -sin(θ) 0 0][x]   [xcos(θ) - ysin(θ)]
 [sin(θ)  cos(θ) 0 0][y]   [ycos(θ) + xsin(θ)]
 [0           0  1 0][z] = [                z]
 [0           0  0 1][1]   [                1]
