@@ -129,7 +129,7 @@ Imagine the edge list as a 4xN matrix.
 * Use 4x4 matrices with a diagonal of 1's like an identity matrix.
 * The rightmost side will also have a, b, and c in descending order.
 * Multiply this matrix with the column matrix of a point + a 4th row with a value of 1.
-* Transformation matrix:
+* Translation matrix:
 ```
 [1 0 0 a][x]   [x + a]
 [0 1 0 b][y]   [y + b]
