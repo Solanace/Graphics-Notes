@@ -17,6 +17,36 @@ Spring 2018
 | 02/13 | [Representing Image Data (2)](#0213-representing-image-data-2)             |
 | 02/26 | [Transformations (1)](#0226-transformations-1)                             |
 | 02/27 | [Transformations (2)](#0227-transformations-2)                             |
+| 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
+
+---
+
+## 03/05: Parametric Equations
+  
+* Define a curve as a system of equations based on an independent variable (t).
+* x = f(t)
+* y = g(t)
+* z = h(t)
+* Restrict t between 0 and 1, sorta like a percentage.
+
+#### General Parametric Framework (Pseudocode)
+
+```
+for (0 <= t <= 1, t += step) {
+	x = f(t)
+	y = g(t)
+	add_edge(x, y)
+}
+```
+* Line - (x<sub>0</sub>, y<sub>0</sub>) -> (x<sub>1</sub>, y<sub>1</sub>)
+	* f(t) = x<sub>0</sub> + t(Δx)
+	* g(t) = y<sub>0</sub> + t(Δy)
+* Circle - (x<sub>c</sub>, y<sub>c</sub>) r
+	* f(t) = rcos(2πt) + x<sub>c</sub>
+	* g(t) = rsin(2πt) + y<sub>c</sub>
+	* 0 <= θ <= 2π
+* Consider making the loop an integer. For example, have t range from 0 to 100, and simply divide it by 100 for calculation purposes.
+* We want to draw **splines**, or curves that can be combined smoothly. Only cubics will be drawn.
 
 ---
 
