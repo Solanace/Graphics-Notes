@@ -18,7 +18,7 @@ Spring 2018
 | 02/26 | [Transformations (1)](#0226-transformations-1)                             |
 | 02/27 | [Transformations (2)](#0227-transformations-2)                             |
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
-| 03/06 | [Hermite Curves](#0305-hermite-curves)                                     |
+| 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
 
 ---
 
