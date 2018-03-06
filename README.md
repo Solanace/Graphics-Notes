@@ -18,6 +18,36 @@ Spring 2018
 | 02/26 | [Transformations (1)](#0226-transformations-1)                             |
 | 02/27 | [Transformations (2)](#0227-transformations-2)                             |
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
+| 03/06 | [Hermite Curves](#0305-hermite-curves)                                     |
+
+---
+
+## 03/06: Hermite Curves
+
+Given information:
+* P<sub>0</sub>, P<sub>1</sub> - Endpoints
+* R<sub>0</sub>, R<sub>1</sub> - Rates of change at each endpoint
+* f(t) = at<sup>3</sup> + bt<sup>2</sup> + ct + d
+* f'(t) = 3at<sup>2</sup> + 2bt + c
+* f(0) = d = P<sub>0</sub>
+* f'(0) = c = R<sub>0</sub>
+* f(1) = a + b + c + d = P<sub>1</sub>
+* f'(1) = 3a + 2b + 1c = R<sub>1</sub>
+
+This is a system of equations. Let's solve this using a matrix!
+```
+[0 0 0 1][a]   [P0]
+[1 1 1 1][b]   [P1]
+[0 0 1 0][c] = [R0]
+[3 2 1 0][d]   [R1]
+```
+Because H • C (coefficients) = G (givens), H<sup>-1</sup> • G = C:
+```
+[ 2 -2  1  1][P0]   [a]
+[-3  3 -2 -1][P1]   [b]
+[ 0  0  1  0][R0] = [c]
+[ 1  0  0  0][R1]   [d]
+```
 
 ---
 
