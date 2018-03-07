@@ -19,6 +19,41 @@ Spring 2018
 | 02/27 | [Transformations (2)](#0227-transformations-2)                             |
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
 | 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
+| 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
+
+---
+## 03/07: Bezier Curves
+
+The 'r' is silent!
+
+* Can apply to a polynomial of any degree, though we're only doing cubics.
+* A polynomial of degree n is defined by n + 1 points.
+
+#### Line
+* P<sub>t</sub> moves along the line P<sub>0</sub>P<sub>1</sub>
+* P<sub>1</sub> "pulls" the curve towards it over time
+* P<sub>t</sub> = (1 - t)P<sub>0</sub> + tP<sub>1</sub>
+
+#### Quadratic
+* P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>
+* Q<sub>0</sub> moves along the line P<sub>0</sub>P<sub>1</sub>
+* Q<sub>1</sub> moves along the line P<sub>1</sub>P<sub>2</sub>
+* Q<sub>t</sub> moves along the line Q<sub>0</sub>Q<sub>1</sub>
+* Q<sub>t</sub> = (1 - t)Q<sub>0</sub> + tQ<sub>1</sub>
+* Q<sub>t</sub> = (1 - t)\[(1 - t)P<sub>0</sub> + tP<sub>1</sub>] + t\[(1 - t)P<sub>1</sub> + tP<sub>2</sub>]
+* Q<sub>t</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + t(1 - t)P<sub>1</sub> + t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
+* Q<sub>t</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
+
+#### Cubic
+* P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub>
+* Q<sub>0</sub> <-> P<sub>0</sub>P<sub>1</sub>, Q<sub>1</sub> <-> P<sub>1</sub>P<sub>2</sub>, Q<sub>2</sub> <-> P<sub>2</sub>P<sub>3</sub>
+* R moves along quadratics defined by Q
+* R<sub>0</sub> <-> Q<sub>0</sub>Q<sub>1</sub>, R<sub>1</sub> <-> Q<sub>1</sub>Q<sub>2</sub>
+* R<sub>t</sub> moves along the line R<sub>0</sub>R<sub>1</sub>
+* R<sub>t</sub> = (1 - t)R<sub>0</sub> + tR<sub>1</sub>
+* R<sub>t</sub> = (1 - t)\[(1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>] + t\[(1 - t)<sup>2</sup>P<sub>1</sub> + 2t(1 - t)P<sub>2</sub> + t<sup>2</sup>P<sub>3</sub>]
+* ...ALGEBRA
+* R<sub>t</sub> = (1 - t)<sup>3</sup>P<sub>0</sub> + 3t(1 - t)<sup>2</sup>P<sub>1</sub> + 3t<sup>2</sup>(1 - t)P<sub>2</sub> + t<sup>3</sup>P<sub>3</sub>
 
 ---
 
