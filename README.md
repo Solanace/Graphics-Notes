@@ -20,6 +20,7 @@ Spring 2018
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
 | 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
+| 03/08 | [Bezier Curves](#0307-bezier-curves)                                       |
 
 ---
 ## 03/07: Bezier Curves
@@ -54,6 +55,20 @@ The 'r' is silent!
 * R<sub>t</sub> = (1 - t)\[(1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>] + t\[(1 - t)<sup>2</sup>P<sub>1</sub> + 2t(1 - t)P<sub>2</sub> + t<sup>2</sup>P<sub>3</sub>]
 * ...ALGEBRA
 * R<sub>t</sub> = (1 - t)<sup>3</sup>P<sub>0</sub> + 3t(1 - t)<sup>2</sup>P<sub>1</sub> + 3t<sup>2</sup>(1 - t)P<sub>2</sub> + t<sup>3</sup>P<sub>3</sub>
+* Rearrange into standard polynomial format
+* R<sub>t</sub> = (-P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>)t<sup>3</sup> + (3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>)t<sup>2</sup> + (-3P<sub>0</sub> + 3P<sub>1</sub>)t + P<sub>0</sub> = at<sup>3</sup> + bt<sup>2</sup> + ct + d
+	* a = -P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>
+	* b = 3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>
+	* c = -3P<sub>0</sub> + 3P<sub>1</sub>
+	* d = P<sub>0</sub>
+
+Matrix format:
+```
+[-1  3 -3  1][P0]   [a]
+[ 3 -6  3  0][P1]   [b]
+[-3  3  0  0][P2] = [c]
+[ 1  0  0  0][P3]   [d]
+```
 
 ---
 
