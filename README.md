@@ -20,9 +20,37 @@ Spring 2018
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
 | 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
-| 03/08 | [Bezier Curves](#0307-bezier-curves)                                       |
+| 03/13 | [3D Shapes](#0307-3d-shapes)                                               |
 
 ---
+
+## 03/13: 3D Shapes
+
+#### Box
+* Defining points are vertices
+* Given any single vertex (top-left-front), width (x), height (y), and depth (z)
+```
+add_box(pt, x, y, z) {
+	add_edge(pt, pt + x)
+	Do this another 11 times for the other 11 lines
+	Amazing
+}
+```
+
+#### Sphere
+* Defining points are on the surface
+* Given center and radius
+* Generate points by drawing and rotating a circle about the x-axis (horizontal poles) or y-axis (vertical poles)
+* X-axis rotation matrix:
+```
+[1     0     0][rcosθ]
+[0  cosϕ -sinϕ][rsinθ]
+[0  sinϕ  cosϕ][    0]
+```
+* θ = angle of circle creation, ϕ = angle of circle rotation
+
+---
+
 ## 03/07: Bezier Curves
 
 The 'r' is silent!
