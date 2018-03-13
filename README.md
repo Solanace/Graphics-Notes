@@ -20,7 +20,7 @@ Spring 2018
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
 | 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
-| 03/13 | [3D Shapes](#0307-3d-shapes)                                               |
+| 03/13 | [3D Shapes](#0313-3d-shapes)                                               |
 
 ---
 
