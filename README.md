@@ -20,11 +20,42 @@ Spring 2018
 | 03/05 | [Parametric Equations](#0305-parametric-equations)                         |
 | 03/06 | [Hermite Curves](#0306-hermite-curves)                                     |
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
-| 03/13 | [3D Shapes](#0313-3d-shapes)                                               |
+| 03/13 | [3D Shapes (1)](#0313-3d-shapes-1)                                         |
+| 03/14 | [3D Shapes (2)](#0314-3d-shapes-2)                                         |
 
 ---
 
-## 03/13: 3D Shapes
+## 03/14: 3D Shapes (2)
+
+#### Sphere
+* Pseudocode:
+```
+for (ϕ: 0 -> 2π) {
+	for (θ: 0 -> π) { // Semicircle
+		x = rcosθ + cx
+		y = rsinθcosϕ + cy
+		z = rsinθsinϕ + cz
+	}
+}
+```
+
+#### Torus
+* Defining points are on the surface
+* Given center, radius of tube (r), distance from center to center of tube (R)
+* Generate points by drawing and rotating a circle, but unlike a sphere, it's not centered at the origin
+	* If we move over x, rotate about y and vice versa
+```
+[ cosϕ  0  sinϕ][rcosθ + R]
+[    0  1     0][    rsinθ]
+[-sinϕ  0  cosϕ][        0]
+```
+* x = cosϕ(rcosθ + R) + cx
+* y = rsinθ + cy
+* z = -sinϕ(rcosθ + R) + cz
+
+---
+
+## 03/13: 3D Shapes (1)
 
 #### Box
 * Defining points are vertices
@@ -47,7 +78,13 @@ add_box(pt, x, y, z) {
 [0  cosϕ -sinϕ][rsinθ]
 [0  sinϕ  cosϕ][    0]
 ```
+* x = rcosθ + cx
+* y = rsinθcosϕ + cy
+* z = rsinθsinϕ + cz
 * θ = angle of circle creation, ϕ = angle of circle rotation
+* A circle only needs to be rotated halfway before creating a sphere
+* Can also do it the other way, completely rotating a semicircle
+	* We're doing it this way (makes stuff easier to calculate later on)
 
 ---
 
