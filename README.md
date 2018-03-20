@@ -31,7 +31,7 @@ Spring 2018
 * A vector is a unit with both direction and magnitude
 * <x, y, z>
 
-![Tada](https://mathinsight.org/media/image/image/vector_2d_coordinates.png)
+![](https://mathinsight.org/media/image/image/vector_2d_coordinates.png)
 
 ---
 
