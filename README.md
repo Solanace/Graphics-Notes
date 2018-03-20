@@ -5,7 +5,7 @@ Spring 2018
 
 ## Table of Contents
 
-| Date  | Aim                                                                        |
+| Date  | Topic                                                                      |
 | ----- | -------------------------------------------------------------------------- |
 | 01/31 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
 | 02/01 | [Peering into the Depths of Color](#0131-peering-into-the-depths-of-color) |
@@ -22,6 +22,16 @@ Spring 2018
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
 | 03/13 | [3D Shapes (1)](#0313-3d-shapes-1)                                         |
 | 03/14 | [3D Shapes (2)](#0314-3d-shapes-2)                                         |
+| 03/20 | [Vectors](#0320-vectors)                                                   |
+
+---
+
+## 03/20: Vectors
+
+* A vector is a unit with both direction and magnitude
+* <x, y, z>
+
+![Tada](https://mathinsight.org/media/image/image/vector_2d_coordinates.png)
 
 ---
 
