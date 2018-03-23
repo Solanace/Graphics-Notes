@@ -45,10 +45,17 @@ A<sub>z</sub>B<sub>z</sub>
 #### Wireframe Mesh
 * Shape is defined by the edges that connect points on the surface
 * `add_box()` calls `add_edge()` calls `add_point()`
-* `draw_line()` calls `draw_line()`
-* Very limited, because no surfaces
+* `draw_lines()` calls `draw_line()`
+* Very limited, because no surfaces (no shading, no coloring in, can't tell which object is in front)
 
 #### Polygon Mesh
+* Shape is defined by the polygons that connect points on the surface (triangles)
+* Points of a triangle:
+	* Edge matrix: \[P<sub>0</sub>, P<sub>1</sub>, P<sub>1</sub>, P<sub>2</sub>, P<sub>2</sub>, P<sub>0</sub>]
+	* Polygon matrix: \[P<sub>0</sub>, P<sub>1</sub>, P<sub>2</sub>]
+* `add_box()` calls **`add_polygon()`** calls `add_point()`
+* **`draw_polygons()`** calls **`draw_polygon()`**
+* Points must be added in a counterclockwise manner for the cross product's RHR
 
 ---
 
@@ -128,7 +135,11 @@ The 'r' is silent!
 * Q<sub>t</sub> moves along the line Q<sub>0</sub>Q<sub>1</sub>
 * Q<sub>t</sub> = (1 - t)Q<sub>0</sub> + tQ<sub>1</sub>
 * Q<sub>t</sub> = (1 - t)\[(1 - t)P<sub>0</sub> + tP<sub>1</sub>] + t\[(1 - t)P<sub>1</sub> + tP<sub>2</sub>]
-* Q<sub>t</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + t(1 - t)P<sub>1</sub> + t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
+* Q<sub>t</sub> =
+(1 - t)<sup>2</sup>P<sub>0</sub> +
+t(1 - t)P<sub>1</sub> +
+t(1 - t)P<sub>1</sub> +
+t<sup>2</sup>P<sub>2</sub>
 * Q<sub>t</sub> = (1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>
 
 #### Cubic
@@ -138,11 +149,22 @@ The 'r' is silent!
 * R<sub>0</sub> <-> Q<sub>0</sub>Q<sub>1</sub>, R<sub>1</sub> <-> Q<sub>1</sub>Q<sub>2</sub>
 * R<sub>t</sub> moves along the line R<sub>0</sub>R<sub>1</sub>
 * R<sub>t</sub> = (1 - t)R<sub>0</sub> + tR<sub>1</sub>
-* R<sub>t</sub> = (1 - t)\[(1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>] + t\[(1 - t)<sup>2</sup>P<sub>1</sub> + 2t(1 - t)P<sub>2</sub> + t<sup>2</sup>P<sub>3</sub>]
+* R<sub>t</sub> =
+(1 - t)\[(1 - t)<sup>2</sup>P<sub>0</sub> + 2t(1 - t)P<sub>1</sub> + t<sup>2</sup>P<sub>2</sub>] +
+t\[(1 - t)<sup>2</sup>P<sub>1</sub> + 2t(1 - t)P<sub>2</sub> + t<sup>2</sup>P<sub>3</sub>]
 * ...ALGEBRA
-* R<sub>t</sub> = (1 - t)<sup>3</sup>P<sub>0</sub> + 3t(1 - t)<sup>2</sup>P<sub>1</sub> + 3t<sup>2</sup>(1 - t)P<sub>2</sub> + t<sup>3</sup>P<sub>3</sub>
+* R<sub>t</sub> =
+(1 - t)<sup>3</sup>P<sub>0</sub> +
+3t(1 - t)<sup>2</sup>P<sub>1</sub> +
+3t<sup>2</sup>(1 - t)P<sub>2</sub> +
+t<sup>3</sup>P<sub>3</sub>
 * Rearrange into standard polynomial format
-* R<sub>t</sub> = (-P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>)t<sup>3</sup> + (3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>)t<sup>2</sup> + (-3P<sub>0</sub> + 3P<sub>1</sub>)t + P<sub>0</sub> = at<sup>3</sup> + bt<sup>2</sup> + ct + d
+* R<sub>t</sub> =
+(-P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>)t<sup>3</sup> +
+(3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>)t<sup>2</sup> +
+(-3P<sub>0</sub> + 3P<sub>1</sub>)t +
+P<sub>0</sub> =
+at<sup>3</sup> + bt<sup>2</sup> + ct + d
 	* a = -P<sub>0</sub> + 3P<sub>1</sub> - 3P<sub>2</sub> + P<sub>3</sub>
 	* b = 3P<sub>0</sub> - 6P<sub>1</sub> + 3P<sub>2</sub>
 	* c = -3P<sub>0</sub> + 3P<sub>1</sub>
