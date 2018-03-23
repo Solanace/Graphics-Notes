@@ -33,12 +33,12 @@ Spring 2018
 
 ![alt text](https://mathinsight.org/media/image/image/vector_2d_coordinates.png)
 
-* Magnitude - ||A|| = sqrt(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)
+* Magnitude - ||A&#8407;|| = sqrt(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)
 * Normalized vector - unit vector that preserves the direction of another vector
-	* &Acirc; = 1 / ||A|| * (A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)
-* Dot product - A • B = ||A|| ||B|| cos(θ) = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub>
+	* Â = 1 / ||A&#8407;|| * (A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)
+* Dot product - A&#8407; • B&#8407; = ||A&#8407;|| ||B&#8407;|| cos(θ) = A<sub>x</sub>B<sub>x</sub> + A<sub>y</sub>B<sub>y</sub> + A<sub>z</sub>B<sub>z</sub>
 * Cross product - perpendicular to A and B, magnitude = area of parallelogram
-	* A x B = ||A|| ||B|| sin(θ) = (A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)i + (A<sub>z</sub>B<sub>x</sub> - A<sub>x</sub>B<sub>z</sub>)j + (A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)k
+	* A&#8407; x B&#8407; = ||A&#8407;|| ||B&#8407;|| sin(θ) = (A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)i&#770; + (A<sub>z</sub>B<sub>x</sub> - A<sub>x</sub>B<sub>z</sub>)j&#770; + (A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)k&#770;
 * Remember that the dot product is a scalar and cross product is a vector that needs 3 dimensions!
 
 ---
