@@ -22,23 +22,23 @@ Spring 2018
 
 ## 03/20: Vectors
 
-* A vector is a unit with both direction and magnitude
+* A vector is a unit with both direction and magnitude (displayed as A&#8407;)
 * <x, y, z>, arrow drawn from the origin
 
 ![alt text](https://mathinsight.org/media/image/image/vector_2d_coordinates.png)
 
-* Magnitude - ||A&#8407;|| = sqrt(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)
+* Magnitude - ||A⃗|| = sqrt(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)
 * Normalized vector - unit vector that preserves the direction of another vector
-	* Â = 1 / ||A&#8407;|| * (A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)
-* Dot product - A&#8407; • B&#8407; = ||A&#8407;|| ||B&#8407;|| cos(θ) =
+	* Â = 1 / ||A⃗|| * (A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)
+* Dot product - A⃗ • B⃗ = ||A⃗|| ||B⃗|| cos(θ) =
 A<sub>x</sub>B<sub>x</sub> +
 A<sub>y</sub>B<sub>y</sub> +
 A<sub>z</sub>B<sub>z</sub>
 * Cross product - perpendicular to A and B, magnitude = area of parallelogram
-	* A&#8407; x B&#8407; = ||A&#8407;|| ||B&#8407;|| sin(θ) =
-	(A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)i&#770; +
-	(A<sub>z</sub>B<sub>x</sub> - A<sub>x</sub>B<sub>z</sub>)j&#770; +
-	(A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)k&#770;
+	* A⃗ x B⃗ = ||A⃗|| ||B⃗|| sin(θ) =
+	(A<sub>y</sub>B<sub>z</sub> - A<sub>z</sub>B<sub>y</sub>)î +
+	(A<sub>z</sub>B<sub>x</sub> - A<sub>x</sub>B<sub>z</sub>)ĵ +
+	(A<sub>x</sub>B<sub>y</sub> - A<sub>y</sub>B<sub>x</sub>)k̂
 	* Use newlines for good formatting in your code
 * Remember that the dot product is a scalar and the cross product is a vector that needs 3 dimensions!
 
@@ -56,6 +56,24 @@ A<sub>z</sub>B<sub>z</sub>
 * `add_box()` calls **`add_polygon()`** calls `add_point()`
 * **`draw_polygons()`** calls **`draw_polygon()`**
 * Points must be added in a counterclockwise manner for the cross product's RHR
+
+#### Backspace Culling
+* Only drawing the polygons that are forward-facing
+* Both easier on the eyes and the computer
+* N⃗ - Surface normal, vector perpendicular to the polygon surface
+* V⃗ - View vector drawn from the surface to the eye/camera
+* When the angle between N⃗ and V⃗ >= 90°, the surface is no longer visible
+* 3-step process:
+	1. Calculate N⃗
+		* A⃗ = <P<sub>1</sub> - P<sub>0</sub>>
+		* B⃗ = <P<sub>2</sub> - P<sub>0</sub>>
+		* N⃗ = A⃗ x B⃗ = <x, y, z>
+	2. Find θ
+		* V⃗ = k̂ = <0, 0, 1>
+		* N⃗ • V⃗ = ||N⃗|| ||V⃗|| cos(θ) = 0 + 0 + z
+	3. If -90° < θ < 90°, draw
+		* cos(θ) > 0
+		* Therefore, just see if the z-component of N⃗ is positive
 
 ---
 
