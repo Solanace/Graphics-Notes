@@ -17,6 +17,31 @@ Spring 2018
 | 03/07 | [Bezier Curves](#0307-bezier-curves)                                       |
 | 03/13 | [3D Shapes](#0313-3d-shapes)                                               |
 | 03/20 | [Vectors](#0320-vectors)                                                   |
+| 04/11 | [Relative Coordinate System](#0411-relative-coordinate-system)             |
+
+---
+
+## 04/11: Relative Coordinate System
+* Currently, transformations are applied to all shapes in the polygon/edge matrix
+* A relative coordinate system applies transformations to THE WORLD
+* This lets us draw each shape in a different world
+```
+[1 0 0 0]  [2 0 0  50]
+[0 1 0 0]  [0 2 0 100]
+[0 0 1 0]  [0 0 2   0]
+[0 0 0 1]  [0 0 0   1]
+```
+* Matrix A does nothing because it's an identity matrix
+* Matrix B doubles everything and translates it
+* If we apply matrix B to the world, the origin will become (50, 100, 0) and everything will be scaled to 2x for drawing _new_ objects
+
+#### Drawing in an RCS
+1. Generate polygons/edges (currently all we do)
+2. Immediately apply the current coordinate system to those points
+3. Draw the polygons/edges to the image
+
+#### Downsides
+* Difficult to make complicated objects of many parts (e.g., a robot that consists of a spherical head, box body will have trouble moving while turning its head)
 
 ---
 
