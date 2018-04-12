@@ -28,8 +28,8 @@ Spring 2018
 ```
 [1 0 0 0]  [2 0 0  50]
 [0 1 0 0]  [0 2 0 100]
-[0 0 1 0]  [0 0 2   0]
-[0 0 0 1]  [0 0 0   1]
+[0 0 1 0]  [0 0 2   0]
+[0 0 0 1]  [0 0 0   1]
 ```
 * Matrix A does nothing because it's an identity matrix
 * Matrix B doubles everything and translates it
@@ -42,6 +42,54 @@ Spring 2018
 
 #### Downsides
 * Difficult to make complicated objects of many parts (e.g., a robot that consists of a spherical head, box body will have trouble moving while turning its head)
+* We need to keep track of multiple coordinate systems, some sort of data structure
+* We're not using trees, but a tree diagram is visually helpful:
+```
+MISTER    ROBOTO
+     Global
+       |
+     Torso
+    /  |  \
+Head Upper \
+      Arm   Leg
+       |
+     Lower
+      Arm
+```
+* We're using stacks: simple and efficient (LIFO)
+
+#### Coordinate System Stack
+* Goal: maintain a stack of coordinate systems
+* Top will be the current coordinate system
+* Bottom will always be the identity matrix
+* Transformations will modify top coordinate system
+* Multiply the top by the transformation matrix
+* Say we're drawing just the head and torso, with the head rotated 90 degrees:
+```
+Command | Stack
+===================
+push    | I
+        | I
+-------------------
+move    | I•M1
+        | I
+-------------------
+box     |
+-------------------
+push    | I•M1
+        | I•M1
+        | I
+-------------------
+move    | I•M1•M2
+        | I•M1
+        | I
+-------------------
+rotate  | I•M1•M2•R
+        | I•M1
+        | I
+-------------------
+sphere  |
+```
 
 ---
 
