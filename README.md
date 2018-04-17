@@ -18,6 +18,18 @@ Spring 2018
 | 03/13 | [3D Shapes](#0313-3d-shapes)                                               |
 | 03/20 | [Vectors](#0320-vectors)                                                   |
 | 04/11 | [Relative Coordinate System](#0411-relative-coordinate-system)             |
+| 04/12 | [Colors](#0412-colors)                                                     |
+
+---
+
+## 04/12: Colors
+* **Scanline conversion** - Filling in a polygon by drawing consecutive horizontal or vertical lines
+* Need to order vertices vertically for bottom, middle, and top
+* Need to find the endpoints of each scanline
+* Loop from y<sub>b</sub> to y<sub>t</sub> with a step of 1
+* Call `draw_line()` with x<sub>0</sub> and x<sub>1</sub>
+* x<sub>0</sub> starts at x<sub>b</sub> and ends at x<sub>t</sub>, with a step of Δ0
+* x<sub>1</sub> is either on BM or MT
 
 ---
 
