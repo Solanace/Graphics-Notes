@@ -18,11 +18,11 @@ Spring 2018
 | 03/13 | [3D Shapes](#0313-3d-shapes)                                               |
 | 03/20 | [Vectors](#0320-vectors)                                                   |
 | 04/11 | [Relative Coordinate System](#0411-relative-coordinate-system)             |
-| 04/12 | [Colors](#0412-colors)                                                     |
+| 04/17 | [Colors](#0417-colors)                                                     |
 
 ---
 
-## 04/12: Colors
+## 04/17: Colors
 * **Scanline conversion** - Filling in a polygon by drawing consecutive horizontal or vertical lines
 * Need to order vertices vertically for bottom, middle, and top
 * Need to find the endpoints of each scanline
