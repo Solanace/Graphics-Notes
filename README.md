@@ -24,12 +24,21 @@ Spring 2018
 
 ## 04/17: Colors
 * **Scanline conversion** - Filling in a polygon by drawing consecutive horizontal or vertical lines
-* Need to order vertices vertically for bottom, middle, and top
+* Order vertices vertically for bottom, middle, and top (B, M, and T)
 * Need to find the endpoints of each scanline
-* Loop from y<sub>b</sub> to y<sub>t</sub> with a step of 1
-* Call `draw_line()` with x<sub>0</sub> and x<sub>1</sub>
-* x<sub>0</sub> starts at x<sub>b</sub> and ends at x<sub>t</sub>, with a step of Δ0
-* x<sub>1</sub> is either on BM or MT
+* y: y<sub>B</sub> -> y<sub>T</sub>, step = 1
+* x<sub>0</sub>: x<sub>B</sub> -> x<sub>T</sub>,
+step = Δ0 = 1 / m =
+(x<sub>T</sub> - x<sub>B</sub>) / (y<sub>T</sub> - y<sub>B</sub>) =
+Δx / # of scanlines
+* x<sub>1</sub> is more complicated
+	* On BM until y = y<sub>M</sub>, then on MT
+	* Step = Δ1 =
+	(x<sub>M</sub> - x<sub>B</sub>) / (y<sub>M</sub> - y<sub>B</sub>) or
+	(x<sub>T</sub> - x<sub>M</sub>) / (y<sub>T</sub> - y<sub>M</sub>)
+	* Tip: when y = y<sub>M</sub>, set x = x<sub>M</sub>
+* Special case where two points have the same y-value - arbitrarily define one to be the top/bottom and the other to be the middle
+* We will deal with rendering the correct objects in the front eventually - for now, test something simpler like a sphere, not Mr. Roboto
 
 ---
 
