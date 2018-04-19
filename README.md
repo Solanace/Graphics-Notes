@@ -23,7 +23,7 @@ Spring 2018
 ---
 
 ## 04/17: Colors
-#### Scanline Converion
+#### Scanline Conversion
 * Filling in a polygon by drawing consecutive horizontal or vertical lines
 * Order vertices vertically for bottom, middle, and top (B, M, and T)
 * Need to find the endpoints of each scanline
