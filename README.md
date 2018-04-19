@@ -23,7 +23,8 @@ Spring 2018
 ---
 
 ## 04/17: Colors
-* **Scanline conversion** - Filling in a polygon by drawing consecutive horizontal or vertical lines
+#### Scanline Converion
+* Filling in a polygon by drawing consecutive horizontal or vertical lines
 * Order vertices vertically for bottom, middle, and top (B, M, and T)
 * Need to find the endpoints of each scanline
 * y: y<sub>B</sub> -> y<sub>T</sub>, step = 1
@@ -39,6 +40,15 @@ step = Δ0 = 1 / m =
 	* Tip: when y = y<sub>M</sub>, set x = x<sub>M</sub>
 * Special case where two points have the same y-value - arbitrarily define one to be the top/bottom and the other to be the middle
 * We will deal with rendering the correct objects in the front eventually - for now, test something simpler like a sphere, not Mr. Roboto
+
+#### Z-Buffer
+* 2D array of floating-point values, 1:1 mapping with the screen's array
+* Check the z-buffer before updating the screen
+* Initialize each z value to be the smallest possible (most negative) value
+* A lot of functions receive insignificant changes, mostly adding the z-buffer as an argument to be passed on
+* `plot()` must check/modify the z-buffer
+* `draw_line()` must compute z-values
+* `scanline_convert()` must compute z-values
 
 ---
 
