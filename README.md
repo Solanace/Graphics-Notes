@@ -19,6 +19,35 @@ Spring 2018
 | 03/20 | [Vectors](#0320-vectors)                                                   |
 | 04/11 | [Relative Coordinate System](#0411-relative-coordinate-system)             |
 | 04/17 | [Colors](#0417-colors)                                                     |
+| 04/26 | [Lighting](#0426-lighting)                                                 |
+
+---
+
+## 04/26: Lighting
+* Colors are modeled based on:
+	1. Color, intensity, and location of light
+	2. Reflective properties of the object(s)
+
+#### Types of light sources
+* Ambient light
+	* General background lighting
+	* No particular source (comes from everywhere)
+	* Represented by a 0-255 color value
+* Point light
+	* Comes from a specific location
+	* Can have many sources for an image
+	* Assumed to be very far away so it lights all objects simlarly (parallel rays)
+	* Represented by a color and location
+
+#### Phong Reflection Model
+* Models real world reflections by breaking them into 3 parts - ambient, diffuse, and specular reflection
+* I (illumination, color value) = Ambient + Diffuse + Specular
+* Ambient is self-explanatory, diffuse and specular are based off point sources
+* Ambient = A * Ka
+	* A: Ambient light (0-255 RGB)
+	* Ka: Constant of ambient reflection (0-1)
+* Diffuse = 
+	* Light comes from a single source and is reflected back in all directions, dull and matte objects
 
 ---
 
