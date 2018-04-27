@@ -42,12 +42,29 @@ Spring 2018
 #### Phong Reflection Model
 * Models real world reflections by breaking them into 3 parts - ambient, diffuse, and specular reflection
 * I (illumination, color value) = Ambient + Diffuse + Specular
+* If I > 255, set I = 255 (pure white, brightest we can do)
 * Ambient is self-explanatory, diffuse and specular are based off point sources
-* Ambient = A * Ka
-	* A: Ambient light (0-255 RGB)
-	* Ka: Constant of ambient reflection (0-1)
-* Diffuse = 
-	* Light comes from a single source and is reflected back in all directions, dull and matte objects
+* Ambient = A * K<sub>a</sub>
+	* A: Color of ambient light (0-255 RGB)
+	* K<sub>a</sub>: Constant of ambient reflection (0-1)
+* Diffuse = P * K<sub>d</sub> * (N⃗ • L⃗)
+	* Light comes from a single source and is reflected back in all directions, models dull and matte surfaces
+	* P: Color of point/light source
+	* K<sub>d</sub>: Constant of diffuse reflection
+	* N⃗ • L⃗ = cos(θ)
+		* N⃗: Normalized normal vector
+		* L⃗: Normalized light vector _from_ the surface _to_ the light source (easier math)
+		* θ: Angle between N⃗ and L⃗
+		* If N⃗ • L⃗ <= 0, the surface is not illuminated by the point source so Diffuse = 0
+* Specular = P * K<sub>s</sub>
+	* Reflects a point light source in a specific direction, models glossy/shiny surfaces
+	* P: Color of point/light source
+	* K<sub>s</sub>: Constant of specular reflection
+	* N⃗: Normalized normal vector
+	* L⃗: Normalized light vector _from_ the surface _to_ the light source (easier math)
+	* R⃗: Normalized reflection vector
+	* V⃗: Normalized view vector
+	* α: Angle between view vector and reflected vector
 
 ---
 
