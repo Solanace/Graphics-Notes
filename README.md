@@ -21,6 +21,10 @@ Spring 2018
 | 04/17 | [Colors](#0417-colors)                                                     |
 | 04/26 | [Lighting](#0426-lighting)                                                 |
 
+**Important Unicode Chars**
+* Arrow: 20d7
+* Hat: 0302
+
 ---
 
 ## 04/26: Lighting
@@ -41,30 +45,34 @@ Spring 2018
 
 #### Phong Reflection Model
 * Models real world reflections by breaking them into 3 parts - ambient, diffuse, and specular reflection
-* I (illumination, color value) = Ambient + Diffuse + Specular
+* I (illumination, color value) = Ambient + Diffuse + Specular = A * K<sub>a</sub> + P * K<sub>d</sub> * (N̂ • L̂) + P * K<sub>s</sub> * \[(2(N̂ • L̂)N̂ - L̂) • V̂]<sup>x</sup>
 * If I > 255, set I = 255 (pure white, brightest we can do)
 * Ambient is self-explanatory, diffuse and specular are based off point sources
 * Ambient = A * K<sub>a</sub>
 	* A: Color of ambient light (0-255 RGB)
 	* K<sub>a</sub>: Constant of ambient reflection (0-1)
-* Diffuse = P * K<sub>d</sub> * (N⃗ • L⃗)
+* Diffuse = P * K<sub>d</sub> * (N̂ • L̂)
 	* Light comes from a single source and is reflected back in all directions, models dull and matte surfaces
 	* P: Color of point/light source
 	* K<sub>d</sub>: Constant of diffuse reflection
-	* N⃗ • L⃗ = cos(θ)
-		* N⃗: Normalized normal vector
-		* L⃗: Normalized light vector _from_ the surface _to_ the light source (easier math)
-		* θ: Angle between N⃗ and L⃗
-		* If N⃗ • L⃗ <= 0, the surface is not illuminated by the point source so Diffuse = 0
-* Specular = P * K<sub>s</sub>
+	* N̂ • L̂ = cos(θ)
+		* N̂: Normalized normal vector
+		* L̂: Normalized light vector _from_ the surface _to_ the light source (easier math)
+		* θ: Angle between N̂ and L̂
+		* If N̂ • L̂ <= 0, the surface is not illuminated by the point source so Diffuse = 0
+* Specular = P * K<sub>s</sub> * \[(2(N̂ • L̂)N̂ - L̂) • V̂]<sup>x</sup>
 	* Reflects a point light source in a specific direction, models glossy/shiny surfaces
 	* P: Color of point/light source
 	* K<sub>s</sub>: Constant of specular reflection
-	* N⃗: Normalized normal vector
-	* L⃗: Normalized light vector _from_ the surface _to_ the light source (easier math)
-	* R⃗: Normalized reflection vector
-	* V⃗: Normalized view vector
-	* α: Angle between view vector and reflected vector
+	* N̂: Normalized normal vector
+	* L̂: Normalized light vector _from_ the surface _to_ the light source (easier math)
+	* θ: Angle of incidence, cos(θ) = N̂ • L̂
+	* T⃗: Vertical component of L̂ = (N̂ • L̂)N̂
+	* S⃗: Horizontal component of L̂
+	* R̂: Normalized reflection vector (also from the surface) = 2T⃗ - L̂ = 2(N̂ • L̂)N̂ - L̂
+	* V̂: Normalized view vector
+	* α: Angle between R̂ and V̂, cos(α) = R̂ • V̂ = (2(N̂ • L̂)N̂ - L̂) • V̂
+	* Specular reflection dies off really quickly, like an exponential, which is represented by x (something like 16)
 
 ---
 
