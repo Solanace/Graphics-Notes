@@ -20,10 +20,29 @@ Spring 2018
 | 04/11 | [Relative Coordinate System](#0411-relative-coordinate-system)             |
 | 04/17 | [Colors](#0417-colors)                                                     |
 | 04/26 | [Lighting](#0426-lighting)                                                 |
+| 05/07 | [Compilers](#0507-compilers)                                               |
 
 **Important Unicode Chars**
 * Arrow: 20d7
 * Hat: 0302
+
+---
+
+## 05/07: Compilers
+* Our parser should be able to parse variables, do looping, etc.
+* Sample script:
+```
+shiny_blue = 0 0 0.1 0 0 0.3 0 0 0.8
+box
+0 0 0 10 20 30 shiny_blue
+```
+* We want a compiler that takes source code and turns it into an image (or images)
+* We're used to compilers that take source code and turn it into executable code
+	* These compilers have several components:
+	* lexer -> syntactic analyzer -> semantic analyzer -> optimizer (optional) -> code generator
+* Lexer - performs lexical analysis
+	* "Knows" all valid tokens in a language, including string literals, numeric literals, operators, formatting characters, keywords, and identifiers (function names, variables)
+	* Reads in source code and outputs a token list, doesn't catch invalid identifiers (e.g., undefined variable names)
 
 ---
 
