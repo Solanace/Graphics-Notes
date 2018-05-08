@@ -43,6 +43,26 @@ box
 * Lexer - performs lexical analysis
 	* "Knows" all valid tokens in a language, including string literals, numeric literals, operators, formatting characters, keywords, and identifiers (function names, variables)
 	* Reads in source code and outputs a token list, doesn't catch invalid identifiers (e.g., undefined variable names)
+	* Example:
+	```C
+	int main() {
+		long x = 5 + 6;
+		printf("%d", x);
+		return x;
+	}
+	```
+	* Token list: int, main, (, ), {, \n, \t, long, x, =, 5, +, 6, }
+	* C lexers: Lex, flex; Java lexers: JavaCC
+
+#### Compiler Parts
+| Name   | Input       | Output     |
+| ------ | ----------- | ---------- |
+| lexer  | source code | token list |
+| parser | token list  | parse tree |
+
+#### Lexer Format
+* We are using MDL
+* ID \[a-zA-Z]\[a-zA-Z0-9_]*
 
 ---
 
