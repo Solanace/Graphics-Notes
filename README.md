@@ -51,18 +51,30 @@ box
 		return x;
 	}
 	```
-	* Token list: int, main, (, ), {, \n, \t, long, x, =, 5, +, 6, }
+	* Token list: int, main, (, ), {, \n, \t, long, x, =, 5, +, 6, ;, printf, (, "%d", x, ), ;, ...
 	* C lexers: Lex, flex; Java lexers: JavaCC
+	* We might be doing regex?
+* Parser - performs syntax analysis
+	* Checks the token list against the defined structure (i.e., grammar) of the language
+	* Output is a syntax tree that can and does reorder the token list:
+	```
+	      int main
+	       /   |  \
+	      =   printf\
+	     / \    / \  \
+	long x  + "%d" x  \
+	       / \       return
+	      5   6         |
+	                    x
+	```
+	* Tools: yacc (Yet Another Compiler-Compiler), bison
 
 #### Compiler Parts
-| Name   | Input       | Output     |
-| ------ | ----------- | ---------- |
-| lexer  | source code | token list |
-| parser | token list  | parse tree |
-
-#### Lexer Format
-* We are using MDL
-* ID \[a-zA-Z]\[a-zA-Z0-9_]*
+| Name              | Input       | Output      |
+| ----------------- | ----------- | ----------- |
+| lexer             | source code | token list  |
+| parser            | token list  | syntax tree |
+| semantic analyzer |             |             |
 
 ---
 
