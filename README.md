@@ -40,41 +40,68 @@ box
 * We're used to compilers that take source code and turn it into executable code
 	* These compilers have several components:
 	* lexer -> syntactic analyzer -> semantic analyzer -> optimizer (optional) -> code generator
-* Lexer - performs lexical analysis
-	* "Knows" all valid tokens in a language, including string literals, numeric literals, operators, formatting characters, keywords, and identifiers (function names, variables)
-	* Reads in source code and outputs a token list, doesn't catch invalid identifiers (e.g., undefined variable names)
-	* Example:
-	```C
-	int main() {
-		long x = 5 + 6;
-		printf("%d", x);
-		return x;
-	}
-	```
-	* Token list: int, main, (, ), {, \n, \t, long, x, =, 5, +, 6, ;, printf, (, "%d", x, ), ;, ...
-	* C lexers: Lex, flex; Java lexers: JavaCC
-	* We might be doing regex?
-* Parser - performs syntax analysis
-	* Checks the token list against the defined structure (i.e., grammar) of the language
-	* Output is a syntax tree that can and does reorder the token list:
-	```
-	      int main
-	       /   |  \
-	      =   printf\
-	     / \    / \  \
-	long x  + "%d" x  \
-	       / \       return
-	      5   6         |
-	                    x
-	```
-	* Tools: yacc (Yet Another Compiler-Compiler), bison
 
-#### Compiler Parts
 | Name              | Input       | Output      |
 | ----------------- | ----------- | ----------- |
 | lexer             | source code | token list  |
 | parser            | token list  | syntax tree |
 | semantic analyzer |             |             |
+
+#### Lexer
+* Performs lexical analysis
+* "Knows" all valid tokens in a language, including string literals, numeric literals, operators, formatting characters, keywords, and identifiers (function names, variables)
+* Reads in source code and outputs a token list, doesn't catch invalid identifiers (e.g., undefined variable names)
+* Example:
+```C
+int main() {
+	long x = 5 + 6;
+	printf("%d", x);
+	return x;
+}
+```
+* Token list: int, main, (, ), {, \n, \t, long, x, =, 5, +, 6, ;, printf, (, "%d", x, ), ;, ...
+* C lexers: Lex, flex; Java lexers: JavaCC
+* We might be doing regex?
+
+#### Parser
+* performs syntax analysis
+* Checks the token list against the defined structure (i.e., grammar) of the language
+* Output is a syntax tree that can and does reorder the token list:
+```
+	       int main
+       ____________|_____________
+       =         printf      return
+_______|___   _____|___        _|_
+long x    +   "%d"    x         x
+       ___|___
+       5     6
+```
+* Tools: yacc (Yet Another Compiler-Compiler), bison
+
+#### Semantic Analyzer
+* Evaluates the syntax tree and creates an operation list and symbol table (stores identifiers and associated information)
+* If the languaged is typed, type-checking will occur here
+* Does NOT evaluate expressions
+* Tree traversal types:
+	* post: L -> R -> M
+	* pre: M -> L -> R
+	* in: L -> M -> R
+
+**Operation List**
+
+| Number | Operation | Arguments |
+| ------ | --------- | --------- |
+| 0      | +         | 5, 6      |
+| 1      | =         | x, \[0]   |
+| 2      | return    | x         |
+
+**Symbol Table**
+
+| Symbol | Category | Type? |
+| ------ | -------- | ----- |
+| main   | function | int   |
+| x      | value    | long  |
+| printf | function | int   |
 
 ---
 
