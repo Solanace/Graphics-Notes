@@ -41,11 +41,13 @@ box
 	* These compilers have several components:
 	* lexer -> syntactic analyzer -> semantic analyzer -> optimizer (optional) -> code generator
 
-| Name              | Input       | Output      |
-| ----------------- | ----------- | ----------- |
-| lexer             | source code | token list  |
-| parser            | token list  | syntax tree |
-| semantic analyzer |             |             |
+| Name              | Input                 | Output                       |
+| ----------------- | --------------------- | ---------------------------- |
+| lexer             | source code           | token list                   |
+| parser            | token list            | syntax tree                  |
+| semantic analyzer | syntax tree           | operation list, symbol table |
+| optimizer         | operation list        | optimized operation list     |
+| code generator    | OO-list, symbol table | binary executable            |
 
 #### Lexer
 * Performs lexical analysis
@@ -102,6 +104,17 @@ long x    +   "%d"    x         x
 | main   | function | int   |
 | x      | value    | long  |
 | printf | function | int   |
+
+#### Optimizer
+* Optimizes operation list
+
+#### Code Generator
+* Translates the operation list into binary assembly code
+
+#### Our Code
+```
+image script -> token list -> syntax tree ->  -> operation list + symbol table --code generator-->  image(s)
+```
 
 ---
 
