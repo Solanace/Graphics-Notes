@@ -21,10 +21,40 @@ Spring 2018
 | 04/17 | [Colors](#0417-colors)                                                     |
 | 04/26 | [Lighting](#0426-lighting)                                                 |
 | 05/07 | [Compilers](#0507-compilers)                                               |
+| 05/17 | [Animation](#0516-animation)                                               |
 
 **Important Unicode Chars**
 * Arrow: 20d7
 * Hat: 0302
+
+---
+
+## 05/16: Animation
+* Goal: Generate multiple images in a sequence with small changes between each
+* Apply transformations over time
+* `move 400 0 0 <modifier in the domain [0, 1]>` - requires too much repetition
+* We must save animations in .gif files, not .png
+* Make sure to store the .png files in a separate directory and DO NOT PUSH THEM TO GITHUB
+* Call `animate file`, not `display file`
+
+#### Knobs
+* In MDL, this modifier is called a **knob** (modifies move, rotate, and translate)
+* If there's no knob, the code just does the entire transformation
+* `move x y z [knob]` - Command format
+* `move 400 0 0 m0` - m0 is a variable name
+* M0 needs to convey the number of frames, as well as the location we are moving to and from
+
+#### New Commands
+* Vary:
+	* `vary <knob> <start frame> <end frame> <start value> <end value>`
+	* `vary m0 0 4 0 1`
+* Frames:
+	* `frames <total # of frames>`
+	* `frames 5`
+* Basename:
+	* `basename <name>`
+	* `basename rolling`
+	* Sets the name of the animation .png/.gif files
 
 ---
 
