@@ -33,13 +33,11 @@ Spring 2018
 * Goal: Generate multiple images in a sequence with small changes between each
 * Apply transformations over time
 * `move 400 0 0 <modifier in the domain [0, 1]>` - requires too much repetition
-* We must save animations in .gif files, not .png
-* Make sure to store the .png files in a separate directory and DO NOT PUSH THEM TO GITHUB
-* Call `animate file`, not `display file`
 
 #### Knobs
 * In MDL, this modifier is called a **knob** (modifies move, rotate, and translate)
 * If there's no knob, the code just does the entire transformation
+* If there is a knob, look up its value and modify args by it
 * `move x y z [knob]` - Command format
 * `move 400 0 0 m0` - m0 is a variable name
 * M0 needs to convey the number of frames, as well as the location we are moving to and from
@@ -48,13 +46,37 @@ Spring 2018
 * Vary:
 	* `vary <knob> <start frame> <end frame> <start value> <end value>`
 	* `vary m0 0 4 0 1`
+	* Computes and stores the knob values for each frame
 * Frames:
 	* `frames <total # of frames>`
 	* `frames 5`
+	* Have a variable that stores the total number of frames in the animation
 * Basename:
 	* `basename <name>`
 	* `basename rolling`
 	* Sets the name of the animation .png/.gif files
+	* Have a variable that stores this name
+
+#### Generating Animated Files
+* We must save animations in .gif files, not .png
+* Make sure to store the .png files in a separate directory and DO NOT PUSH THEM TO GITHUB
+* Call `animate file`, not `display file`
+* Default framefrate is 100 FPS
+* Framerate can be altered like so: `convert -delay 10 anim/rollin.gif`
+* The `-delay N` flag creates a N/100 secon delay between frames
+
+#### 3-Pass Animation Framework
+1. Setup
+	* Set frames if frames command is present
+	* Set basename is basename command is present
+	* Stop if vary is present but not frames
+2. Vary
+	* Compute and stores all knob values for every frame
+	* Stop if vary range is invalid
+3. Draw
+	* Repeat loop for each frame
+	* Update knobs in symbol table at the start of each loop
+	* Save the current frame at the end of each loop
 
 ---
 
@@ -96,7 +118,7 @@ int main() {
 * We might be doing regex?
 
 #### Parser
-* performs syntax analysis
+* Performs syntax analysis
 * Checks the token list against the defined structure (i.e., grammar) of the language
 * Output is a syntax tree that can and does reorder the token list:
 ```
