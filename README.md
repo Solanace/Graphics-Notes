@@ -70,6 +70,7 @@ Spring 2018
 	* Set frames if frames command is present
 	* Set basename is basename command is present
 	* Stop if vary is present but not frames
+	* **Stop if more frames are specified than actually used (see below)**
 2. Vary
 	* Compute and stores all knob values for every frame
 	* Stop if vary range is invalid
@@ -77,6 +78,17 @@ Spring 2018
 	* Repeat loop for each frame
 	* Update knobs in symbol table at the start of each loop
 	* Save the current frame at the end of each loop
+
+#### Structure for Storing Knob Values
+* Have an array of frames, where each frame has its associated knob values stored with it
+
+```
+vary m0 0  3  0 .5
+vary m0 4  6 .5 .8
+vary m0 9 11 .8  1
+```
+* Frames 7 and 8 are absent - what happens? What are their values?
+* Screw that, throw a compiler error! Why should you have to deal with this?!
 
 ---
 
