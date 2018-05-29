@@ -22,10 +22,29 @@ Spring 2018
 | 04/26 | [Lighting](#0426-lighting)                                                 |
 | 05/07 | [Compilers](#0507-compilers)                                               |
 | 05/17 | [Animation](#0516-animation)                                               |
+| 05/29 | [Shading Models](#0529-shading-models)                                     |
 
 **Important Unicode Chars**
 * Arrow: 20d7
 * Hat: 0302
+
+---
+
+## 05/29: Shading Models
+* How and when you calculate the color (I) for each shape
+
+#### Types of Shading
+* Currently, I is calculated once per polygon - known as **flat shading**
+* **Gouraud shading**
+	* Calculate I at each vertex by interpolating I in `scanline_conversion()` and `draw_line()`
+	* If a gradient (color difference) exists between the intensities of the horizontal line endpoints, shade accordingly
+	* Very similar to z-buffering.
+* **Phong shading**
+	* Not to be confused with the [Phong reflection model](#phong-reflection-model)
+	* Calculate I once per pixel by interpolating the **vertex normal** in `scanline_conversion()` and `draw_line()`
+
+#### Calculating Normals
+* Vertex normals are the combined value of all surface normals for polygons that share a common vertex
 
 ---
 
