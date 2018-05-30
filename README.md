@@ -44,7 +44,9 @@ Spring 2018
 	* Calculate I once per pixel by interpolating the **vertex normal** in `scanline_conversion()` and `draw_line()`
 
 #### Calculating Normals
-* Vertex normals are the combined value of all surface normals for polygons that share a common vertex
+* Vertex normals are the combined value of all surface normals for polygons that share a common vertex (direction is also summed up)
+* Polygons \[v0, v1,v2, ...] where v = vertex
+* Hash table data structure: keys are vertices and vortex normals are associate with themm
 
 ---
 
